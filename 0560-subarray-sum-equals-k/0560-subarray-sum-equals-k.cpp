@@ -6,7 +6,7 @@ public:
         for(int i=0;i<nums.size();i++){
             mp[prefixsum]++;
             prefixsum += nums[i];
-            c += mp[prefixsum-k];
+            if(mp[prefixsum-k]) c += mp[prefixsum-k];
         }
         return c;
     }
