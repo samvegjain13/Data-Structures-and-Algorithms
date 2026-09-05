@@ -7,7 +7,6 @@ public:
             unordered_map<char,int> mp2;
             for(int j=i;j<i+minSize;j++){
                 mp2[s[j]]++;
-                if(mp2.size()>maxLetters) break;
             }
             if(mp2.size()>maxLetters) continue;
                 mp1[s.substr(i,minSize)]++;
