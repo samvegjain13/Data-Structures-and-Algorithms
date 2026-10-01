@@ -1,8 +1,8 @@
 class Solution {
 public:
-bool func(vector<int>& hash1,vector<int>& hash2){
-    for(int i=0;i<hash1.size();i++){
-        if(hash1[i]!=hash2[i]) return false;
+bool func(string p,vector<int>& hash1,vector<int>& hash2){
+    for(int i=0;i<p.size();i++){
+        if(hash1[p[i]-'a']!=hash2[p[i]-'a']) return false;
     }
     return true;
 }
@@ -18,7 +18,7 @@ bool func(vector<int>& hash1,vector<int>& hash2){
                 hash2[s[low]-'a']--;
                 low++;
             }
-            if(func(hash1,hash2)) v.push_back(low);
+            if(func(p,hash1,hash2)) v.push_back(low);
         }
         return v;
     }
