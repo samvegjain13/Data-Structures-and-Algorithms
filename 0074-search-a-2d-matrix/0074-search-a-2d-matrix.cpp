@@ -4,7 +4,7 @@ public:
         int m = matrix.size(),n = matrix[0].size(),row = 0,col = 0;
         int low = 0, high = (m*n)-1;
         while(low<=high){
-            int mid = low + (high-low)/2;
+            int mid = (high+low)/2;
             row = mid/n;
             col = mid%n;
             if(matrix[row][col]==target) return true;
