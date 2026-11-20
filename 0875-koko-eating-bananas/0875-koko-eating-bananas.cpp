@@ -1,18 +1,19 @@
 class Solution {
 public:
-    bool fun(vector<int>&piles,int h,int mid){
+    long long fun(vector<int>&piles,int h,int mid){
+        long long hr=0;
         for(int i=0;i<piles.size();i++){
-            if(piles[i]%mid == 0) h -= piles[i]/mid;
-            else h -= (piles[i]/mid)+1;
-            if(h<0) return false;
+            if(piles[i]%mid == 0) hr += piles[i]/mid;
+            else hr += (piles[i]/mid)+1;
         }
-        return true;
+        return hr;
     }
     int minEatingSpeed(vector<int>& piles, int h) {
         int low = 1,high = *max_element(piles.begin(),piles.end()),ans=0;
         while(low<=high){
             int mid = (low+high)/2;
-            if(fun(piles,h,mid)){
+            long long hr = fun(piles,h,mid);
+            if(hr<=h){
                 ans = mid;
                 high = mid-1;
             } else low = mid+1;
